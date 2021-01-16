@@ -24,6 +24,8 @@ dust_list = []
 
 best_score = 0
 
+running = True
+
 def game_set():
     global walk_image, dino_x, dino_y, walk_image2, add_cloud, cloud_list, add_dust, dust_list, game_speed , speed_up,  jump, jump_speed, add_obstacle, obstacle_list, die, score, plus_score, sparkle_score, sparkle_count
     walk_image = 0
