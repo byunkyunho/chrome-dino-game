@@ -175,15 +175,19 @@ while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
-        if event.type == pg.KEYDOWN:
-            if event.key == pg.K_SPACE:
-                if not die:
-                    if not jump:
-                        jump = True
-                        jump_speed = 15
-                else:
-                    die = False
-                    game_set()
+        if event.type == pg.MOUSEBUTTONDOWN and die:
+            mouse_x, mouse_y = pg.mouse.get_pos()
+            if mouse_x > 446 and mouse_x < 663 and mouse_y > 240 and mouse_y < 432:
+                die = False
+                game_set()
+        if event.type == pg.KEYDOWN and event.key == pg.K_SPACE or event.type == pg.MOUSEBUTTONDOWN :
+            if not die:
+                if not jump:
+                    jump = True
+                    jump_speed = 15
+            else:
+                die = False
+                game_set()
 
     u_dino()
     d_background()
